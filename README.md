@@ -43,7 +43,7 @@ These instructions assume you're using an Ubuntu/Debian-based system. Adjust as 
 7. Paste in the below service definition. Be sure to replace "{your_Cloudflare_API_token}", then tweak to your liking. It's critical it remain of type "notify"!
 ```
 [Unit]
-Description=Temp monitor and fan control for R620 server
+Description=Dynamic DNS client for Cloudflare
 
 [Service]
 Type=notify
