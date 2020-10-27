@@ -1,0 +1,404 @@
+{
+	"$schema": "http://json-schema.org/draft-07/schema",
+	"$id": "http://example.com/example.json",
+	"type": "object",
+	"title": "The root schema",
+	"description": "The root schema comprises the entire JSON document.",
+	"default": {},
+	"examples": [
+		{
+			"Settings": {
+				"PollingIntervalInSeconds": 600,
+				"CloudflareApiToken": "NhErlEaDjAKeNToRaCHEAmpTaNdsMENSouSElIUM",
+				"CloudflareBaseApiUrl": "https://api.cloudflare.com/client/v4",
+				"CloudflareZones": [
+					{
+						"Name": "mydomain1.com",
+						"ID": "terbICKInEURNIspErveNTediAnDeryO",
+						"CanUpdate": true,
+						"Records": [
+							{
+								"ID": "otOmYraGeNTORytiANCedicInGStrOwN",
+								"Name": "dynamic",
+								"CanUpdate": true
+							}
+						]
+					},
+					{
+						"Name": "mydomain2.com",
+						"ID": "oTbOGYmONcHETROBselPaRtENiOutiOn",
+						"CanUpdate": true,
+						"Records": [
+							{
+								"ID": "aCKmaNCiTAstRoutcHONTEnTiCLEcton",
+								"Name": "dynamic",
+								"CanUpdate": true
+							}
+						]
+					}
+				]
+			},
+			"Logging": {
+				"LogLevel": {
+					"Default": "Information",
+					"Microsoft": "Warning",
+					"Microsoft.Hosting.Lifetime": "Information"
+				}
+			}
+		}
+	],
+	"required": [
+		"Settings",
+		"Logging"
+	],
+	"properties": {
+		"Settings": {
+			"$id": "#/properties/Settings",
+			"type": "object",
+			"title": "The Settings schema",
+			"description": "This encompasses the settings that the service uses to run.",
+			"default": {},
+			"examples": [
+				{
+					"PollingIntervalInSeconds": 600,
+					"CloudflareApiToken": "NhErlEaDjAKeNToRaCHEAmpTaNdsMENSouSElIUM",
+					"CloudflareBaseApiUrl": "https://api.cloudflare.com/client/v4",
+					"CloudflareZones": [
+						{
+							"Name": "mydomain1.com",
+							"ID": "terbICKInEURNIspErveNTediAnDeryO",
+							"CanUpdate": true,
+							"Records": [
+								{
+									"ID": "otOmYraGeNTORytiANCedicInGStrOwN",
+									"Name": "dynamic",
+									"CanUpdate": true
+								}
+							]
+						},
+						{
+							"Name": "mydomain2.com",
+							"ID": "oTbOGYmONcHETROBselPaRtENiOutiOn",
+							"CanUpdate": true,
+							"Records": [
+								{
+									"ID": "aCKmaNCiTAstRoutcHONTEnTiCLEcton",
+									"Name": "dynamic",
+									"CanUpdate": true
+								}
+							]
+						}
+					]
+				}
+			],
+			"required": [
+				"PollingIntervalInSeconds",
+				"CloudflareApiToken",
+				"CloudflareBaseApiUrl",
+				"CloudflareZones"
+			],
+			"properties": {
+				"PollingIntervalInSeconds": {
+					"$id": "#/properties/Settings/properties/PollingIntervalInSeconds",
+					"type": "integer",
+					"title": "The PollingIntervalInSeconds schema",
+					"description": "As named, this is the number of seconds to wait between calls to check your public IP with https://www.ipify.org.",
+					"default": 600,
+					"examples": [
+						5,
+						600,
+						86400
+					]
+				},
+				"CloudflareApiToken": {
+					"$id": "#/properties/Settings/properties/CloudflareApiToken",
+					"type": "string",
+					"title": "The CloudflareApiToken schema",
+					"description": "This is your API application token from Cloudflare.",
+					"default": "",
+					"examples": [
+						"NhErlEaDjAKeNToRaCHEAmpTaNdsMENSouSElIUM"
+					]
+				},
+				"CloudflareBaseApiUrl": {
+					"$id": "#/properties/Settings/properties/CloudflareBaseApiUrl",
+					"type": "string",
+					"title": "The CloudflareBaseApiUrl schema",
+					"description": "The base URL of Cloudflare's API.",
+					"default": "",
+					"examples": [
+						"https://api.cloudflare.com/client/v4"
+					]
+				},
+				"CloudflareZones": {
+					"$id": "#/properties/Settings/properties/CloudflareZones",
+					"type": "array",
+					"title": "The CloudflareZones schema",
+					"description": "An array of one or more zones as defined by Cloudflare. Usually a zone corresponds with a domain, like 'google.com'.",
+					"default": [],
+					"examples": [
+						[
+							{
+								"Name": "mydomain1.com",
+								"ID": "terbICKInEURNIspErveNTediAnDeryO",
+								"CanUpdate": true,
+								"Records": [
+									{
+										"ID": "otOmYraGeNTORytiANCedicInGStrOwN",
+										"Name": "dynamic",
+										"CanUpdate": true
+									}
+								]
+							},
+							{
+								"Name": "mydomain2.com",
+								"ID": "oTbOGYmONcHETROBselPaRtENiOutiOn",
+								"CanUpdate": true,
+								"Records": [
+									{
+										"ID": "aCKmaNCiTAstRoutcHONTEnTiCLEcton",
+										"Name": "dynamic",
+										"CanUpdate": true
+									}
+								]
+							}
+						]
+					],
+					"additionalItems": true,
+					"items": {
+						"$id": "#/properties/Settings/properties/CloudflareZones/items",
+						"minItems": 1,
+						"anyOf": [
+							{
+								"$id": "#/properties/Settings/properties/CloudflareZones/items/anyOf/0",
+								"type": "object",
+								"title": "The CloudflareZone schema",
+								"description": "This represents a single Cloudflare zone. You must specify at least one.",
+								"default": {},
+								"examples": [
+									{
+										"Name": "mydomain1.com",
+										"ID": "terbICKInEURNIspErveNTediAnDeryO",
+										"CanUpdate": true,
+										"Records": [
+											{
+												"ID": "otOmYraGeNTORytiANCedicInGStrOwN",
+												"Name": "dynamic",
+												"CanUpdate": true
+											}
+										]
+									}
+								],
+								"required": [
+									"Name",
+									"ID",
+									"CanUpdate",
+									"Records"
+								],
+								"properties": {
+									"Name": {
+										"$id": "#/properties/Settings/properties/CloudflareZones/items/anyOf/0/properties/Name",
+										"type": "string",
+										"title": "The Name schema",
+										"description": "The name of the zone, used for logging.",
+										"default": "",
+										"examples": [
+											"mydomain1.com"
+										]
+									},
+									"ID": {
+										"$id": "#/properties/Settings/properties/CloudflareZones/items/anyOf/0/properties/ID",
+										"type": "string",
+										"title": "The ID schema",
+										"description": "The zone identifier, as given by Cloudflare.",
+										"default": "",
+										"examples": [
+											"terbICKInEURNIspErveNTediAnDeryO"
+										]
+									},
+									"CanUpdate": {
+										"$id": "#/properties/Settings/properties/CloudflareZones/items/anyOf/0/properties/CanUpdate",
+										"type": "boolean",
+										"title": "The CanUpdate schema",
+										"description": "When true, indicates that the zone should be included in the IP update calls.",
+										"default": true,
+										"examples": [
+											false,
+											true
+										]
+									},
+									"Records": {
+										"$id": "#/properties/Settings/properties/CloudflareZones/items/anyOf/0/properties/Records",
+										"type": "array",
+										"title": "The Records schema",
+										"description": "One or more DNS records to be updated with the zone.",
+										"default": [],
+										"examples": [
+											[
+												{
+													"ID": "otOmYraGeNTORytiANCedicInGStrOwN",
+													"Name": "dynamic",
+													"CanUpdate": true
+												}
+											]
+										],
+										"additionalItems": true,
+										"items": {
+											"$id": "#/properties/Settings/properties/CloudflareZones/items/anyOf/0/properties/Records/items",
+											"minItems": 1,
+											"anyOf": [
+												{
+													"$id": "#/properties/Settings/properties/CloudflareZones/items/anyOf/0/properties/Records/items/anyOf/0",
+													"type": "object",
+													"title": "The first anyOf schema",
+													"description": "A DNS record to be updated with the zone.",
+													"default": {},
+													"examples": [
+														{
+															"ID": "otOmYraGeNTORytiANCedicInGStrOwN",
+															"Name": "dynamic",
+															"CanUpdate": true
+														}
+													],
+													"required": [
+														"ID",
+														"Name",
+														"CanUpdate"
+													],
+													"properties": {
+														"ID": {
+															"$id": "#/properties/Settings/properties/CloudflareZones/items/anyOf/0/properties/Records/items/anyOf/0/properties/ID",
+															"type": "string",
+															"title": "The ID schema",
+															"description": "The record identifier, as given by Cloudflare.",
+															"default": "",
+															"examples": [
+																"otOmYraGeNTORytiANCedicInGStrOwN"
+															]
+														},
+														"Name": {
+															"$id": "#/properties/Settings/properties/CloudflareZones/items/anyOf/0/properties/Records/items/anyOf/0/properties/Name",
+															"type": "string",
+															"title": "The Name schema",
+															"description": "A name for the record, used for logging (not lookup).",
+															"default": "",
+															"examples": [
+																"dynamic"
+															]
+														},
+														"CanUpdate": {
+															"$id": "#/properties/Settings/properties/CloudflareZones/items/anyOf/0/properties/Records/items/anyOf/0/properties/CanUpdate",
+															"type": "boolean",
+															"title": "The CanUpdate schema",
+															"description": "When true, indicates that the record should be included in the IP update calls.",
+															"default": true,
+															"examples": [
+																false,
+																true
+															]
+														}
+													},
+													"additionalProperties": true
+												}
+											]
+										}
+									}
+								},
+								"additionalProperties": true
+							}
+						]
+					}
+				}
+			},
+			"additionalProperties": true
+		},
+		"Logging": {
+			"$id": "#/properties/Logging",
+			"type": "object",
+			"title": "The Logging schema",
+			"description": "Configures the .NET Core logger.",
+			"default": {},
+			"examples": [
+				{
+					"LogLevel": {
+						"Default": "Information",
+						"Microsoft": "Warning",
+						"Microsoft.Hosting.Lifetime": "Information"
+					}
+				}
+			],
+			"required": [
+				"LogLevel"
+			],
+			"properties": {
+				"LogLevel": {
+					"$id": "#/properties/Logging/properties/LogLevel",
+					"type": "object",
+					"title": "The LogLevel schema",
+					"description": "Set the log level for each namespace.",
+					"default": {},
+					"examples": [
+						{
+							"Default": "Information",
+							"Microsoft": "Warning",
+							"Microsoft.Hosting.Lifetime": "Information"
+						}
+					],
+					"required": [
+						"Default"
+					],
+					"properties": {
+						"Default": {
+							"$id": "#/properties/Logging/properties/LogLevel/properties/Default",
+							"type": "string",
+							"title": "The Default schema",
+							"description": "At a minimum, you need to specify this one for logging to function.",
+							"default": "Information",
+							"examples": [
+								"Trace",
+								"Debug",
+								"Information",
+								"Warning",
+								"Error",
+								"Critical"
+							]
+						},
+						"Microsoft": {
+							"$id": "#/properties/Logging/properties/LogLevel/properties/Microsoft",
+							"type": "string",
+							"title": "The Microsoft schema",
+							"description": "The Microsoft namespace except for Hosting Lifetime.",
+							"default": "Warning",
+							"examples": [
+								"Trace",
+								"Debug",
+								"Information",
+								"Warning",
+								"Error",
+								"Critical"
+							]
+						},
+						"Microsoft.Hosting.Lifetime": {
+							"$id": "#/properties/Logging/properties/LogLevel/properties/Microsoft.Hosting.Lifetime",
+							"type": "string",
+							"title": "The Microsoft.Hosting.Lifetime schema",
+							"description": "Logs about DI issues.",
+							"default": "Information",
+							"examples": [
+								"Trace",
+								"Debug",
+								"Information",
+								"Warning",
+								"Error",
+								"Critical"
+							]
+						}
+					},
+					"additionalProperties": true
+				}
+			},
+			"additionalProperties": true
+		}
+	},
+	"additionalProperties": true
+}
